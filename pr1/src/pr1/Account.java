@@ -1,21 +1,25 @@
 package pr1;
 
 public class Account{
-	private double money;
+	private double balance;
 	
-	public Account(double m){
-		money = m;
+	Account(double m){
+		balance = m;
 	}
-	public double getMoney(){
-		return money;
+	public double getBalance(){
+		return balance;
 	}
-	public void setMoney(double m){
-		money = m;
+	protected void setBalance(double m){
+		balance = m;
 	}
-	public void add(double m){
-		money += m;
+	public void credit(double m){
+		balance += m;
 	}
-	public void withdraw(double m){
-		money -= m;
+	public void debit(double m){
+		balance -= m;
+		if(balance<0){
+			System.out.print("Debit amount exceeded amount balance");
+			balance+=m;
+		}
 	}
 }
