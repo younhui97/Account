@@ -1,14 +1,15 @@
 package pr1;
 
 public class Account{
-	private double balance;
+	protected double balance;
 	
 	Account(double m){
 		balance = m;
-	}
+	} 
 	public double getBalance(){
 		return balance;
 	}
+	
 	protected void setBalance(double m){
 		balance = m;
 	}
@@ -18,7 +19,7 @@ public class Account{
 	public void debit(double m){
 		balance -= m;
 		if(balance<0){
-			System.out.print("Debit amount exceeded amount balance");
+			System.out.print("Debit amount exceeded amount balance\n");
 			balance+=m;
 		}
 	}
