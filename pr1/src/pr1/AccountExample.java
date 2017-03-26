@@ -31,6 +31,12 @@ public class AccountExample{
 			System.out.printf("account1 balance: $ %f \n",account1.getBalance());
 			System.out.printf("account2 balance: $ %f \n",account2.getBalance());
 			
-			//nextMonth();
+			
+			System.out.printf("Next month's account1 balance:  ");
+			account1.nextMonth();
+			System.out.printf("\n");
+			System.out.printf("Next month's account2 balance:  ");
+			account2.nextMonth();
+			
 		}
 }

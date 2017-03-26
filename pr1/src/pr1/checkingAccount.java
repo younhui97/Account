@@ -9,7 +9,6 @@ public class checkingAccount extends Account{
 		private double interest;
 		private double loan_interest;
 		//private double balance;
-		private double inibalance;
 		private double loan;
 		
 		@Override
@@ -23,7 +22,7 @@ public class checkingAccount extends Account{
 					System.out.print("Debit amount exceeded amount balance\n");
 					System.out.printf("",getBalance());
 					loan=-1*balance;
-					credit_limit = 10.0;
+					credit_limit = 30.0;
 					if (loan> credit_limit){ 
 						System.out.print("loan exceeded credit_limit\n");
 						balance+=m;
@@ -32,12 +31,17 @@ public class checkingAccount extends Account{
 		}
 		
 		public void nextMonth(){
-			System.out.print("NEXT MONTH!");
+			double nextmonth=0;
+			loan_interest=0.1;
+			interest=0.1;
 			if (balance<0){
-				
-				
+				nextmonth=(balance+(balance*loan_interest));
+				System.out.print(nextmonth);
 			}
-			
+			else if (balance>0){
+				nextmonth=(balance+(balance*interest));
+				System.out.print(nextmonth);
+			}
 		}
 		
 }
