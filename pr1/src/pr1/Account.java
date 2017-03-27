@@ -1,14 +1,19 @@
 package pr1;
 
-public class Account{
+public abstract class Account{
 	protected double balance;
-	
+	protected double credit_limit;
 	Account(double m){
 		balance = m;
 	} 
+	
 	public double getBalance(){
 		return balance;
 	}
+	
+	public abstract double getWithdrawableAccount();
+	
+	public abstract int passTime(int time);
 	
 	protected void setBalance(double m){
 		balance = m;

@@ -1,20 +1,19 @@
 package pr1;
 
 public class checkingAccount extends Account{
-	
-		checkingAccount(double m){
-			super(m);
-		}
-		private double credit_limit;
 		private double interest;
-		private double loan_interest;
-		//private double balance;
+		private double loan_interest;	
 		private double loan;
-		
-		@Override
-		public double getBalance(){
-			return balance;
+
+
+		public checkingAccount(double m,double credit_limit,double interest,double loan_interest){
+			super(m);
+			this.credit_limit=credit_limit;
+			this.interest=interest;
+			this.loan_interest=loan_interest;
 		}
+		//private double balance;
+		
 		@Override
 		public void debit(double m){
 				balance -= m;
@@ -43,5 +42,13 @@ public class checkingAccount extends Account{
 				System.out.print(nextmonth);
 			}
 		}
-		
+
+		@Override
+		public double getWithdrawableAccount(){
+			return balance+credit_limit;
+			}
+		@Override
+		public int passTime(int time){
+			return time;	
+		}
 }

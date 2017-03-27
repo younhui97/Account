@@ -2,14 +2,14 @@ package pr1;
 
 import java.util.Scanner;
 
-public class AccountExample{
+public class AccountTest{
 		
 		private static Scanner sc;
 
 		public static void main(String[] args){
 			
-			checkingAccount account1=new checkingAccount(100);
-			checkingAccount account2=new checkingAccount(100);
+			Account account1=new checkingAccount(100,50,0.01,0.07);
+			Account account2=new SavingAccount(100);
 			
 			System.out.printf("account1 balance: $ %f \n",account1.getBalance());
 			System.out.printf("account2 balance: $ %f \n",account2.getBalance());
@@ -33,10 +33,10 @@ public class AccountExample{
 			
 			
 			System.out.printf("Next month's account1 balance:  ");
-			account1.nextMonth();
+			((checkingAccount) account1).nextMonth();
 			System.out.printf("\n");
 			System.out.printf("Next month's account2 balance:  ");
-			account2.nextMonth();
+			((checkingAccount) account2).nextMonth();
 			
 		}
 }
