@@ -6,6 +6,7 @@ public class AccountTest{
 		
 		private static Scanner sc;
 
+		
 		public static void main(String[] args){
 			
 			Account account1=new checkingAccount(100,50,0.01,0.07);

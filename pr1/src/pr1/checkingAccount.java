@@ -6,6 +6,7 @@ public class checkingAccount extends Account{
 		private double loan;
 
 
+		
 		public checkingAccount(double m,double credit_limit,double interest,double loan_interest){
 			super(m);
 			this.credit_limit=credit_limit;
