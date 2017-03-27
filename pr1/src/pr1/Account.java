@@ -14,7 +14,7 @@ public abstract class Account{
 	
 	public abstract double getWithdrawableAccount();
 	
-	public abstract int passTime(int time);
+	public abstract void passTime(int time);
 	
 	protected void setBalance(double m){
 		balance = m;

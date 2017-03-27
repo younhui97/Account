@@ -30,7 +30,7 @@ public class checkingAccount extends Account{
 				}
 		}
 		
-		public void nextMonth(){
+		/*public void nextMonth(){
 			double nextmonth=0;
 			loan_interest=0.1;
 			interest=0.1;
@@ -42,14 +42,29 @@ public class checkingAccount extends Account{
 				nextmonth=(balance+(balance*interest));
 				System.out.print(nextmonth);
 			}
-		}
-
+		}*/
 		@Override
 		public double getWithdrawableAccount(){
 			return balance+credit_limit;
 			}
 		@Override
-		public int passTime(int time){
-			return time;	
+		public void passTime(int month){
+			double nextmonth;
+			if (balance<0){
+				nextmonth=(balance+(balance*loan_interest));
+				System.out.print(nextmonth);
+			}
+			else if (balance>0){
+				nextmonth=(balance+(balance*interest));
+				System.out.print(nextmonth);	
+			}
+		}
+		
+		public boolean isBankrupted(){
+			if ((balance+credit_limit)<balance){
+				return false;
+			}else{
+				return true;
+			}	
 		}
 }
