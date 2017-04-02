@@ -3,7 +3,7 @@ package pr1;
 public class SavingAccount extends Account{
 	private int month;
 	private double loan;
-	
+	private int numonth;
 	SavingAccount(double m,double loan) {
 		super(m);
 		this.loan=loan;
@@ -16,17 +16,19 @@ public class SavingAccount extends Account{
 	}
 
 	@Override
-	public void passTime(int month) 
-	{	this.month=month;
-		balance = balance*(Math.pow(1+loan,month));
-		
+	public void passTime(int month){
+		this.setMonth(month);
+		numonth+=month;
+		if(numonth==12){
+		balance = balance*(Math.pow(1+loan,numonth));
+		}
 		
 	}
 	
 	@Override
 	public void debit(double m){
-		if (month < 12){
-			System.out.print("Withdrawl denied.Can withdraw after at least one year");
+		if (numonth < 12){
+			System.out.print("Withdrawal denied.Can withdraw after at least one year\n");
 		} else {
 			balance-=m;
 			if(balance<0){
@@ -34,6 +36,16 @@ public class SavingAccount extends Account{
 				balance+=m;
 			}
 		}
+	}
+
+
+	public int getMonth() {
+		return month;
+	}
+
+
+	public void setMonth(int month) {
+		this.month = month;
 	}
 
 }

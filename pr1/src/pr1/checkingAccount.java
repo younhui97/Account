@@ -9,7 +9,7 @@ public class checkingAccount extends Account{
 		
 		public checkingAccount(double m,double credit_limit,double interest,double loan_interest){
 			super(m);
-			this.credit_limit=credit_limit;
+			this.credit_limit=credit_limit; 
 			this.interest=interest;
 			this.loan_interest=loan_interest;
 		}
@@ -19,13 +19,12 @@ public class checkingAccount extends Account{
 		public void debit(double m){
 				balance -= m;
 				if(balance<0){
-					System.out.print("Debit amount exceeded amount balance\n");
+					System.out.print("Debit amount exceeded amount balance\n"); //ÀÜ¾×ÀÌ »©·Á´Â µ·º¸´Ù Àû´Ù
 					System.out.printf("",getBalance());
 					loan=-1*balance;
-					credit_limit = 30.0;
 					if (loan> credit_limit){ 
 						System.out.print("loan exceeded credit_limit\n");
-						balance+=m;
+						//balance+=m;
 					}
 				}
 		}
@@ -45,26 +44,39 @@ public class checkingAccount extends Account{
 		}*/
 		@Override
 		public double getWithdrawableAccount(){
-			return balance+credit_limit;
+			if ((balance+credit_limit)<0){
+				double zero=0;
+				return zero;
+				}
+			else{
+				return balance+credit_limit;
 			}
+		}
 		@Override
 		public void passTime(int month){
-			double nextmonth;
+			//double nextbalance;
 			if (balance<0){
-				nextmonth=(balance+(balance*loan_interest));
-				System.out.print(nextmonth);
+				balance = balance*(Math.pow(1+loan_interest,month));
+				System.out.print(month);
+				System.out.printf("month(s) later: %.2f",balance);
+				System.out.print("\n");
 			}
 			else if (balance>0){
-				nextmonth=(balance+(balance*interest));
-				System.out.print(nextmonth);	
+				balance = balance*(Math.pow(1+interest,month));
+				System.out.print(month);
+				System.out.printf("month(s) later: %.2f",balance);
+				System.out.print("\n");
 			}
 		}
 		
-		public boolean isBankrupted(){
-			if ((balance+credit_limit)<balance){
-				return false;
-			}else{
-				return true;
-			}	
+		public void isBankrupted(){
+			boolean a1=((-1*balance)>credit_limit);
+			if (a1){
+				System.out.printf("Bankrupted!!\n");
+			}
+			else{
+				System.out.print("Not Bankrupted.\n");
+			}
+			//return a1;
 		}
 }
