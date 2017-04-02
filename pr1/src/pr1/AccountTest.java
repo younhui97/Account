@@ -17,17 +17,16 @@ public class AccountTest{
 			System.out.println("Enter withdrawal amount for Account1: ");
 	         amount = scan.nextDouble();
 	         account1.debit(amount);
-	         
 	         System.out.printf("Account1 balance : $ % .2f \t현재출금가능금액: % . 2f\n", account1.getBalance(), account1.getWithdrawableAccount());
-	         
+	         ((checkingAccount) account1).isBankrupted();
 	         account1.passTime(1);
 	         System.out.printf("Account1 balance : $ % .2f \t현재출금가능금액: % . 2f\n", account1.getBalance(), account1.getWithdrawableAccount());
-	         
+	         ((checkingAccount) account1).isBankrupted();
 	         account1.passTime(5);
 	         System.out.printf("Account1 balance : $ % .2f \t현재출금가능금액: % . 2f\n", account1.getBalance(), account1.getWithdrawableAccount());
-	         
-	         //SavingAccount
-	         
+	         ((checkingAccount) account1).isBankrupted();
+	        
+	         //SavingAccount 
 	         System.out.println();
 	         System.out.printf("Account2 balance : $ % .2f \t현재출금가능금액: % . 2f\n", account2.getBalance(), account2.getWithdrawableAccount());
 	         

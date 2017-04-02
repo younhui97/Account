@@ -18,8 +18,7 @@ public class SavingAccount extends Account{
 	@Override
 	public void passTime(int month) 
 	{	this.month=month;
-		double final;
-		final = balance*(Math.pow(1+loan,month);
+		balance = balance*(Math.pow(1+loan,month));
 		
 		
 	}
