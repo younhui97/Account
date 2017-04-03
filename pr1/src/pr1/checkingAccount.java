@@ -56,13 +56,15 @@ public class checkingAccount extends Account{
 		public void passTime(int month){
 			//double nextbalance;
 			if (balance<0){
-				balance = balance*(Math.pow(1+loan_interest,month));
+				//balance = balance*(Math.pow(1+loan_interest,month));
+				balance=(balance+(balance*loan_interest*month));
 				System.out.print(month);
 				System.out.printf("month(s) later: %.2f",balance);
 				System.out.print("\n");
 			}
 			else if (balance>0){
-				balance = balance*(Math.pow(1+interest,month));
+				//balance = balance*(Math.pow(1+interest,month));
+				balance=(balance+(balance*loan_interest*month));
 				System.out.print(month);
 				System.out.printf("month(s) later: %.2f",balance);
 				System.out.print("\n");
