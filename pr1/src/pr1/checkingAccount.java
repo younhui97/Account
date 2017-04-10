@@ -16,7 +16,8 @@ public class checkingAccount extends Account{
 		//private double balance;
 		
 		@Override
-		public void debit(double m){
+		public void debit(double m)throws Exception{
+			
 				balance -= m;
 				if(balance<0){
 					System.out.print("Debit amount exceeded amount balance\n"); //ÀÜ¾×ÀÌ »©·Á´Â µ·º¸´Ù Àû´Ù

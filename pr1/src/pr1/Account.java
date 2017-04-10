@@ -22,11 +22,11 @@ public abstract class Account{
 	public void credit(double m){
 		balance += m;
 	}
-	public void debit(double m){
-		balance -= m;
+	public void debit(double m) throws Exception{              
+		/*balance -= m;
 		if(balance<0){
 			System.out.print("Debit amount exceeded amount balance\n");
-			balance+=m;
-		}
+			balance+=m; */
+		balance-=m;
 	}
 }
