@@ -1,5 +1,7 @@
 package pr1;
 
+import java.util.InputMismatchException;
+
 public class checkingAccount extends Account{
 		private double interest;
 		private double loan_interest;	
@@ -17,16 +19,15 @@ public class checkingAccount extends Account{
 		
 		@Override
 		public void debit(double m)throws Exception{
-			
-				balance -= m;
+				
+				if(m<0){
+					//balance+=m;
+					throw new Exception("À½¼öÀÔ·Â!");
+				}
+				balance-=m;
 				if(balance<0){
-					System.out.print("Debit amount exceeded amount balance\n"); //ÀÜ¾×ÀÌ »©·Á´Â µ·º¸´Ù Àû´Ù
-					System.out.printf("",getBalance());
-					loan=-1*balance;
-					if (loan> credit_limit){ 
-						System.out.print("loan exceeded credit_limit\n");
-						//balance+=m;
-					}
+					balance+=m;
+					throw new Exception("Debit amount exceeded account balance");
 				}
 		}
 		
@@ -57,15 +58,17 @@ public class checkingAccount extends Account{
 		public void passTime(int month){
 			//double nextbalance;
 			if (balance<0){
+				
 				//balance = balance*(Math.pow(1+loan_interest,month));
 				balance=(balance+(balance*loan_interest*month));
+				//balance=(-1*balance);
 				System.out.print(month);
 				System.out.printf("month(s) later: %.2f",balance);
 				System.out.print("\n");
 			}
 			else if (balance>0){
 				//balance = balance*(Math.pow(1+interest,month));
-				balance=(balance+(balance*loan_interest*month));
+				balance=(balance+(balance*interest*month));
 				System.out.print(month);
 				System.out.printf("month(s) later: %.2f",balance);
 				System.out.print("\n");

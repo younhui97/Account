@@ -1,5 +1,7 @@
 package pr1;
 
+import java.util.InputMismatchException;
+
 public class SavingAccount extends Account{
 	private int month;
 	private double loan;
@@ -26,14 +28,17 @@ public class SavingAccount extends Account{
 	}
 	
 	@Override
-	public void debit(double m){
-		if (numonth < 12){
-			System.out.print("Withdrawal denied.Can withdraw after at least one year\n");
+	public void debit(double m) throws Exception{
+		if(m<0){
+			throw new Exception("음수입력!");
+		}
+		else if (numonth < 12){
+			throw new Exception("아직 출금할 수 없습니다");
 		} else {
 			balance-=m;
 			if(balance<0){
-				System.out.print("Debit amount exceeded amount balance\n");
-				balance+=m;
+				throw new Exception("Debit amount exceeded account balance");
+				//balance+=m;
 			}
 		}
 	}
